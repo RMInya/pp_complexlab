@@ -37,13 +37,14 @@ public class userAncete {
             System.out.print("Do you have materialHelp: Yes or No? ");
             mh = sc.nextLine();
             mhs = check(mh, mhs);
-            addUserFunctional.isMoney[addUserFunctional.counter] = new addUserFunctional(mp, ap, ro, si, gs, gfa, gcb, mh);
-            addUserFunctional.howMuchMoney[addUserFunctional.counter] = new addUserFunctional(mps, aps, ros, sis, gss, gfas, gcbs, mhs);
-            addUserFunctional.howMuchMoney[addUserFunctional.counter].setName(name);
+            addUserFunctional.userFinances[addUserFunctional.counter] = new addUserFunctional(mp, ap, ro, si, gs, gfa, gcb, mh);
+            addUserFunctional.userFinances[addUserFunctional.counter] = new addUserFunctional(mps, aps, ros, sis, gss, gfas, gcbs, mhs);
+            addUserFunctional.userFinances[addUserFunctional.counter].setName(name);
             addUserFunctional.counter++;
             x++;
         }       
     }
+    
     public static int check(String word, int money) {
         Scanner sc = new Scanner(System.in);
         String comp = "Yes";

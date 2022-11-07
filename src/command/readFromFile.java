@@ -18,7 +18,6 @@ public class readFromFile implements Command {
         try {
             menu.rread(reader);
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }

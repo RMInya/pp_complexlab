@@ -22,23 +22,23 @@ public class searchUser {
             userIn2();
             emp();
         }
-        if (l == 3) {   //знайти всіх користовачівпо фінальній сумі відсортованих з ріверсом
+        if (l == 3) {   //знайти всіх користовачів по фінальній сумі відсортованих з ріверсом
             System.out.println("Sorted by Tax Sum, reversed");
-            List<addUserFunctional> sor = Arrays.asList(addUserFunctional.howMuchMoney);
+            List<addUserFunctional> sor = Arrays.asList(addUserFunctional.userFinances);
             sor.sort(Comparator.comparingInt(addUserFunctional::getFinalTaxSum).reversed());
             for (int i = 0; i < menuCommands.userscout; i++) {
-                System.out.println((i + 1) + " | " + addUserFunctional.howMuchMoney[i].getName() + " "
-                        + addUserFunctional.howMuchMoney[i].getFinalTaxSum() + " $");
+                System.out.println((i + 1) + " | " + addUserFunctional.userFinances[i].getName() + " "
+                        + addUserFunctional.userFinances[i].getFinalTaxSum() + " $");
             }
             sortmaybeFullInfo();
         }
-        if (l == 4) {    //знайти всіх користовачівпо фінальній сумі відсортованих 
+        if (l == 4) {    //знайти всіх користовачів по фінальній сумі відсортованих 
             System.out.println("Sorted by Tax Sum");
-            List<addUserFunctional> sor = Arrays.asList(addUserFunctional.howMuchMoney);
+            List<addUserFunctional> sor = Arrays.asList(addUserFunctional.userFinances);
             sor.sort(Comparator.comparingInt(addUserFunctional::getFinalTaxSum));
             for (int i = 0; i < menuCommands.userscout; i++) {
-                System.out.println((i + 1) + " | " + addUserFunctional.howMuchMoney[i].getName() + " "
-                        + addUserFunctional.howMuchMoney[i].getFinalTaxSum() + " $");
+                System.out.println((i + 1) + " | " + addUserFunctional.userFinances[i].getName() + " "
+                        + addUserFunctional.userFinances[i].getFinalTaxSum() + " $");
             }
             sortmaybeFullInfo();
         }
@@ -51,12 +51,12 @@ public class searchUser {
         int diapazone2 = sc.nextInt();
         co = 0;
         for (int i = 0; i < menuCommands.userscout; i++) {
-            if (diapazone1 <= addUserFunctional.howMuchMoney[i].getFinalTaxSum()
-                    && diapazone2 >= addUserFunctional.howMuchMoney[i].getFinalTaxSum()) {
-                arr1[i] = addUserFunctional.howMuchMoney[i].getName();
+            if (diapazone1 <= addUserFunctional.userFinances[i].getFinalTaxSum()
+                    && diapazone2 >= addUserFunctional.userFinances[i].getFinalTaxSum()) {
+                arr1[i] = addUserFunctional.userFinances[i].getName();
                 co++;
-                System.out.println((co+1) + ": Found User: " + addUserFunctional.howMuchMoney[i].getName()
-                + " his Tax Sum is " + addUserFunctional.howMuchMoney[i].getFinalTaxSum() + " $");
+                System.out.println((co+1) + ": Found User: " + addUserFunctional.userFinances[i].getName()
+                + " his Tax Sum is " + addUserFunctional.userFinances[i].getFinalTaxSum() + " $");
             }
         }
     }
@@ -67,13 +67,13 @@ public class searchUser {
         char letter = sc.next().charAt(0);
         co = 0;
         for (int i = 0; i < menuCommands.userscout; i++) {
-            String first = addUserFunctional.howMuchMoney[i].getName();
+            String first = addUserFunctional.userFinances[i].getName();
             char comp = first.charAt(0);
             if (letter == comp) {
-                arr1[i] = addUserFunctional.howMuchMoney[i].getName();
+                arr1[i] = addUserFunctional.userFinances[i].getName();
                 co++;
-                System.out.println((co+1) + ": Found User: " + addUserFunctional.howMuchMoney[i].getName()
-                        + " his Tax Sum is " + addUserFunctional.howMuchMoney[i].getFinalTaxSum() + " $");
+                System.out.println((co+1) + ": Found User: " + addUserFunctional.userFinances[i].getName()
+                        + " his Tax Sum is " + addUserFunctional.userFinances[i].getFinalTaxSum() + " $");
             }
         }
     }
@@ -85,10 +85,10 @@ public class searchUser {
             int temp1 = sc.nextInt();
             if (temp1 != 0 || temp1 > co) {
                 int k = 0;
-                while (arr1[temp1 - 1] != addUserFunctional.howMuchMoney[k].getName()) {
+                while (arr1[temp1 - 1] != addUserFunctional.userFinances[k].getName()) {
                     k++;
                 }
-                userInfo.anceteOutPut(k);
+                userInfo.anceteOutPut(addUserFunctional.userFinances,k);
             } else {
                 System.out.println("not searching index");
                 break;
@@ -102,7 +102,7 @@ public class searchUser {
             System.out.println("select user to show fullInfo; 0 to stop");
             int temp1 = sc.nextInt();
             if (temp1 != 0 || temp1 > menuCommands.userscout) {
-                userInfo.anceteOutPut(temp1 - 1);
+                userInfo.anceteOutPut(addUserFunctional.userFinances ,temp1 - 1);
             } else {
                 System.out.println("not searching index");
                 break;

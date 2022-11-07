@@ -18,7 +18,6 @@ public class writeToFile implements Command {
         try {
             menu.wwrite(writer);
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 	}

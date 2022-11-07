@@ -13,7 +13,6 @@ import java.util.Scanner;
 public class CommandDriver {
 
 	public static void main(String args[]) throws IOException {
-		Control control = new Control();
 		menuCommands com = new menuCommands();
 		Scanner sc = new Scanner(System.in);
         BufferedWriter writer = new BufferedWriter(new FileWriter("myFile.txt", false));    
@@ -28,20 +27,20 @@ public class CommandDriver {
 				break;
 			}
 			if (ko == 1) {
-				control.setCommand(new addUser(com));
-				control.press(writer, reader);
+				addUser addUser = new addUser(com);
+				addUser.execute(writer, reader);
 			}
 			if (ko == 2) {
-				control.setCommand(new search(com));
-				control.press(writer, reader);
+				search search = new search(com);
+				search.execute(writer, reader);
 			}
 			if(ko == 3) {
-				control.setCommand(new writeToFile(com));
-				control.press(writer, reader);
+				writeToFile writeToFile = new writeToFile(com);
+				writeToFile.execute(writer, reader);
 			}
 			if(ko == 4) {
-				control.setCommand(new readFromFile(com));
-				control.press(writer, reader);
+				readFromFile readFromFile = new readFromFile(com);
+				readFromFile.execute(writer, reader);
 			}
 		}
 	}
