@@ -9,20 +9,21 @@ import reciever.menuCommands;
 public class searchUser {
     public static String[] arr1 = new String[menuCommands.userscout + 10];
     static int co;
+
     public static void searching() {
         Scanner sc = new Scanner(System.in);
         System.out.println(
                 "Select Search parameter 1: by Tax $; 2: by first name letter; 3: by Tax,reversed; 4: sort by Tax");
         int l = sc.nextInt();
-        if (l == 1) {   //пошук за діапазоном фінальної суми податку
+        if (l == 1) { // пошук за діапазоном фінальної суми податку
             userIn();
             emp();
         }
-        if (l == 2) {   //пошук за 1 буквою імені
+        if (l == 2) { // пошук за 1 буквою імені
             userIn2();
             emp();
         }
-        if (l == 3) {   //знайти всіх користовачів по фінальній сумі відсортованих з ріверсом
+        if (l == 3) { // знайти всіх користовачів по фінальній сумі відсортованих з ріверсом
             System.out.println("Sorted by Tax Sum, reversed");
             List<addUserFunctional> sor = Arrays.asList(addUserFunctional.userFinances);
             sor.sort(Comparator.comparingInt(addUserFunctional::getFinalTaxSum).reversed());
@@ -32,7 +33,7 @@ public class searchUser {
             }
             sortmaybeFullInfo();
         }
-        if (l == 4) {    //знайти всіх користовачів по фінальній сумі відсортованих 
+        if (l == 4) { // знайти всіх користовачів по фінальній сумі відсортованих
             System.out.println("Sorted by Tax Sum");
             List<addUserFunctional> sor = Arrays.asList(addUserFunctional.userFinances);
             sor.sort(Comparator.comparingInt(addUserFunctional::getFinalTaxSum));
@@ -55,8 +56,8 @@ public class searchUser {
                     && diapazone2 >= addUserFunctional.userFinances[i].getFinalTaxSum()) {
                 arr1[i] = addUserFunctional.userFinances[i].getName();
                 co++;
-                System.out.println((co+1) + ": Found User: " + addUserFunctional.userFinances[i].getName()
-                + " his Tax Sum is " + addUserFunctional.userFinances[i].getFinalTaxSum() + " $");
+                System.out.println((co + 1) + ": Found User: " + addUserFunctional.userFinances[i].getName()
+                        + " his Tax Sum is " + addUserFunctional.userFinances[i].getFinalTaxSum() + " $");
             }
         }
     }
@@ -72,7 +73,7 @@ public class searchUser {
             if (letter == comp) {
                 arr1[i] = addUserFunctional.userFinances[i].getName();
                 co++;
-                System.out.println((co+1) + ": Found User: " + addUserFunctional.userFinances[i].getName()
+                System.out.println((co + 1) + ": Found User: " + addUserFunctional.userFinances[i].getName()
                         + " his Tax Sum is " + addUserFunctional.userFinances[i].getFinalTaxSum() + " $");
             }
         }
@@ -88,7 +89,7 @@ public class searchUser {
                 while (arr1[temp1 - 1] != addUserFunctional.userFinances[k].getName()) {
                     k++;
                 }
-                userInfo.anceteOutPut(addUserFunctional.userFinances,k);
+                userInfo.anceteOutPut(addUserFunctional.userFinances, k);
             } else {
                 System.out.println("not searching index");
                 break;
@@ -102,7 +103,7 @@ public class searchUser {
             System.out.println("select user to show fullInfo; 0 to stop");
             int temp1 = sc.nextInt();
             if (temp1 != 0 || temp1 > menuCommands.userscout) {
-                userInfo.anceteOutPut(addUserFunctional.userFinances ,temp1 - 1);
+                userInfo.anceteOutPut(addUserFunctional.userFinances, temp1 - 1);
             } else {
                 System.out.println("not searching index");
                 break;
@@ -110,8 +111,8 @@ public class searchUser {
         }
     }
 
-    public static void emp(){
-        if(arr1[0] != null){
+    public static void emp() {
+        if (arr1[0] != null) {
             maybeFullInfo();
             arr1 = new String[menuCommands.userscout + 10];
         } else {
