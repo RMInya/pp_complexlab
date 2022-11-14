@@ -1,0 +1,15 @@
+@startuml
+left to right direction
+actor Guest as g
+actor admin as a
+package app {
+  usecase "Enter Info From User" as UC1
+  usecase "Calculate Taxes" as UC2
+  usecase "Search" as UC3
+  usecase "Get Information" as UC4
+}
+a --> UC1
+a --> UC2
+a --> UC3
+g --> UC4
+@enduml
