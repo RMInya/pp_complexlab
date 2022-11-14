@@ -1,0 +1,128 @@
+@startuml
+
+class CommandDriver{
+    BufferedWriter writer
+    BufferedReader reader
+    main()
+}
+class MenuCommands{
+    addNewUser()
+    search()
+    wwrite()
+    rread()
+}
+interface Command{
+    execute()
+}
+class AddUser{
+    addUser()
+    --
+    @override
+    execute()
+}
+class ReadFromFile{
+    readFromFile()
+    --
+    @override
+    execute()
+}
+class Search{
+    search()
+    --
+    @override
+    execute()
+}
+class WriteToFile{
+    writeToFile()
+    --
+    @override
+    execute()
+}
+class AddUserFunctional{
+    setName
+    getName()
+    getmainWorkPlace()
+    getadditionWorkPlace()
+    getroyalties()
+    getsoldItems()
+    getgotSurprise()
+    getgotFromAbroad()
+    getgotChildBenefits()
+    getmaterialHelp()
+
+    getmainWorkPlaceSum()
+    getadditionWorkPlaceSum()
+    getroyaltiesSum()
+    getsoldItemsSum()
+    getgotSurpriseSum()
+    getgotFromAbroadSum()
+    getgotChildBenefitsSum()
+    getmaterialHelpSum()
+    newClient()
+}
+class Calculate{
+    calculateTax()
+}
+class FileReader{
+    fileRead()
+}
+class SearchUser{
+    searching()
+    userIn()
+    userIn2()
+    maybeFullInfo()
+    sortMaybeFullInfo()
+}
+class TaxGetters{
+    setFinalTaxSum()
+    setMainWorkPlaceTax()
+    setAdditionWorkPlaceTax()
+    setRoyaltiesTax()
+    setSoldItemsTax()
+    setGotSurpriseTax()
+    setGotFromAbroadTax()
+    setGotChildBenefitsTax()
+    setMaterialHelpTax()
+
+    getFinalTaxSum()
+    getmainWorkPlaceTax()
+    getadditionWorkPlaceTax()
+    getroyaltiesTax()
+    getsoldItemsTax()
+    getgotSurpriseTax()
+    getgotFromAbroadTax()
+    getgotChildBenefitsTax()
+    getmaterialHelpTax()
+}
+class UserAncete{
+    ancete()
+    check()
+}
+class UserInfo{
+    anceteOutPut()
+    output()
+}
+class WriteIntoFile{
+    writeToFile()
+    writ()
+    wrt()
+}
+
+CommandDriver -- Command
+Command -- AddUser
+Command -- ReadFromFile
+Command -- Search
+Command -- WriteToFile
+AddUser -- MenuCommands
+ReadFromFile -- MenuCommands
+Search -- MenuCommands
+WriteToFile -- MenuCommands
+MenuCommands -- AddUserFunctional
+AddUserFunctional -- Calculate
+AddUserFunctional <-- TaxGetters
+MenuCommands -- FileReader
+MenuCommands -- WriteIntoFile
+MenuCommands -- SearchUser
+SearchUser -- UserInfo
+SearchUser -- UserAncete
+@enduml

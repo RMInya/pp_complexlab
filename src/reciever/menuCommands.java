@@ -10,7 +10,7 @@ public class menuCommands {
     public static int userscout;
     Scanner sc = new Scanner(System.in);
 
-    public void addUser() {
+    public void addNewUser() {
         System.out.print("how many users will you have?");
         userscout = sc.nextInt();
         addUserFunctional.newClient(userscout);

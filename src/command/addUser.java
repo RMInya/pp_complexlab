@@ -16,6 +16,6 @@ public class addUser implements Command {
 
 	@Override
 	public void execute(BufferedWriter writer, BufferedReader reader) {
-		menu.addUser();
+		menu.addNewUser();
 	}
 }

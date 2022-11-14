@@ -39,8 +39,6 @@ public class addUserFunctional extends TaxGetters {
     }
 
     public void setName(String n) {this.Name = n;}
-
-
     public String getName() {return this.Name;}
     public String getmainWorkPlace() {return this.mainWorkPlace;}
     public String getadditionWorkPlace() {return this.additionWorkPlace;}
